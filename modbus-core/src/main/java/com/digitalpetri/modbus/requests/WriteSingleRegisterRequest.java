@@ -26,26 +26,58 @@ import com.digitalpetri.modbus.FunctionCode;
  */
 public class WriteSingleRegisterRequest extends SimpleModbusRequest {
 
-    private final int address;
-    private final int value;
+    private int address;
+    private int value;
+
+    /**
+     * 无参构造, 需要手动set address/value
+     * @param functionCode
+     */
+    public WriteSingleRegisterRequest() {
+        super(FunctionCode.WriteSingleRegister);
+    }
 
     /**
      * @param address 0x0000 to 0xFFFF (0 to 65535)
      * @param value   0x0000 to 0xFFFF (0 to 65535)
      */
-    public WriteSingleRegisterRequest(int address, int value) {
+    public WriteSingleRegisterRequest(final int address, final int value) {
         super(FunctionCode.WriteSingleRegister);
 
         this.address = address;
         this.value = value;
     }
 
+    /**
+     * 获取address
+     * @return address
+     */
     public int getAddress() {
-        return address;
+        return this.address;
     }
 
+    /**
+     * 设置address
+     * @param address
+     */
+    public void setAddress(final int address) {
+        this.address = address;
+    }
+
+    /**
+     * 获取value
+     * @return value
+     */
     public int getValue() {
-        return value;
+        return this.value;
+    }
+
+    /**
+     * 设置value
+     * @param value
+     */
+    public void setValue(final int value) {
+        this.value = value;
     }
 
 }

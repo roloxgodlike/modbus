@@ -31,26 +31,58 @@ import com.digitalpetri.modbus.FunctionCode;
  */
 public class WriteSingleCoilRequest extends SimpleModbusRequest {
 
-    private final int address;
-    private final int value;
+    private int address;
+    private int value;
+
+    /**
+     * 无参构造, 需要手动set address/value
+     * @param functionCode
+     */
+    public WriteSingleCoilRequest() {
+        super(FunctionCode.WriteSingleCoil);
+    }
 
     /**
      * @param address 0x0000 to 0xFFFF (0 to 65535)
      * @param value   true or false (0xFF00 or 0x0000)
      */
-    public WriteSingleCoilRequest(int address, boolean value) {
+    public WriteSingleCoilRequest(final int address, final boolean value) {
         super(FunctionCode.WriteSingleCoil);
 
         this.address = address;
         this.value = value ? 0xFF00 : 0x0000;
     }
 
+    /**
+     * 获取address
+     * @return address
+     */
     public int getAddress() {
-        return address;
+        return this.address;
     }
 
+    /**
+     * 设置address
+     * @param address
+     */
+    public void setAddress(final int address) {
+        this.address = address;
+    }
+
+    /**
+     * 获取value
+     * @return value
+     */
     public int getValue() {
-        return value;
+        return this.value;
+    }
+
+    /**
+     * 设置value
+     * @param value
+     */
+    public void setValue(final boolean value) {
+        this.value = value ? 0xFF00 : 0x0000;
     }
 
 }

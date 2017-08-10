@@ -16,12 +16,13 @@
 
 package com.digitalpetri.modbus.codec;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.util.HashedWheelTimer;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Shared resources that if not otherwise provided can be used as defaults.
@@ -31,7 +32,8 @@ import io.netty.util.HashedWheelTimer;
  */
 public abstract class Modbus {
 
-    private Modbus() {}
+    private Modbus() {
+    }
 
     /**
      * @return a shared {@link ExecutorService}.
@@ -54,11 +56,13 @@ public abstract class Modbus {
         return WheelTimerHolder.WheelTimer;
     }
 
-    /** Shutdown/stop any shared resources that may be in use. */
-    public static void releaseSharedResources() {
-        sharedExecutor().shutdown();
-        sharedEventLoop().shutdownGracefully().get();
-        sharedWheelTimer().stop();
+    /** Shutdown/stop any shared resources that may be in use.
+     * @throws ExecutionException
+     * @throws InterruptedException */
+    public static void releaseSharedResources() throws InterruptedException, ExecutionException {
+        Modbus.sharedExecutor().shutdown();
+        Modbus.sharedEventLoop().shutdownGracefully().get();
+        Modbus.sharedWheelTimer().stop();
     }
 
     private static class ExecutorHolder {
@@ -73,7 +77,7 @@ public abstract class Modbus {
         private static final HashedWheelTimer WheelTimer = new HashedWheelTimer();
 
         static {
-            WheelTimer.start();
+            WheelTimerHolder.WheelTimer.start();
         }
     }
 

@@ -26,26 +26,58 @@ import com.digitalpetri.modbus.FunctionCode;
  */
 public class ReadDiscreteInputsRequest extends SimpleModbusRequest {
 
-    private final int address;
-    private final int quantity;
+    private int address;
+    private int quantity;
+
+    /**
+     * 无参构造, 需要手动set address/quantity
+     * @param functionCode
+     */
+    public ReadDiscreteInputsRequest() {
+        super(FunctionCode.ReadDiscreteInputs);
+    }
 
     /**
      * @param address  0x0000 to 0xFFFF (0 to 65535)
      * @param quantity 0x0001 to 0x07D0 (1 to 2000)
      */
-    public ReadDiscreteInputsRequest(int address, int quantity) {
+    public ReadDiscreteInputsRequest(final int address, final int quantity) {
         super(FunctionCode.ReadDiscreteInputs);
 
         this.address = address;
         this.quantity = quantity;
     }
 
+    /**
+     * 获取address
+     * @return address
+     */
     public int getAddress() {
-        return address;
+        return this.address;
     }
 
+    /**
+     * 设置address
+     * @param address
+     */
+    public void setAddress(final int address) {
+        this.address = address;
+    }
+
+    /**
+     * 获取quantity
+     * @return quantity
+     */
     public int getQuantity() {
-        return quantity;
+        return this.quantity;
+    }
+
+    /**
+     * 设置quantity
+     * @param quantity
+     */
+    public void setQuantity(final int quantity) {
+        this.quantity = quantity;
     }
 
 }

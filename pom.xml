@@ -25,7 +25,7 @@
 
     <name>Modbus</name>
     <description>High-performance, non-blocking, zero-buffer-copying Modbus for Java</description>
-    <url>https://github.com/digitalpetri/modbus</url>
+    <url>https://github.com/roloxgodlike/modbus</url>
 
     <developers>
         <developer>
@@ -44,9 +44,9 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/digitalpetri/modbus</url>
-        <connection>scm:git:git://github.com/digitalpetri/modbus.git</connection>
-        <developerConnection>scm:git:git@github.com:digitalpetri/modbus.git</developerConnection>
+        <url>https://github.com/roloxgodlike/modbus</url>
+        <connection>scm:git:git://github.com/roloxgodlike/modbus.git</connection>
+        <developerConnection>scm:git:git@github.com:roloxgodlike/modbus.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
@@ -177,7 +177,7 @@
         </plugins>
     </build>
 
-    <distributionManagement>
+    <!--<distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
@@ -186,6 +186,6 @@
             <id>ossrh</id>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
-    </distributionManagement>
+    </distributionManagement>-->
 
 </project>

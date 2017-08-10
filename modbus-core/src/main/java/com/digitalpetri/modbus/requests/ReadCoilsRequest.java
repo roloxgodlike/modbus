@@ -25,26 +25,56 @@ import com.digitalpetri.modbus.FunctionCode;
  */
 public class ReadCoilsRequest extends SimpleModbusRequest {
 
-    private final int address;
-    private final int quantity;
+    private int address;
+    private int quantity;
+
+    /**
+     * 无参构造, 需要手动set address/quantity
+     */
+    public ReadCoilsRequest() {
+        super(FunctionCode.ReadCoils);
+    }
 
     /**
      * @param address  0x0000 to 0xFFFF (0 to 65535)
      * @param quantity 0x0001 to 0x07D0 (1 to 2000)
      */
-    public ReadCoilsRequest(int address, int quantity) {
+    public ReadCoilsRequest(final int address, final int quantity) {
         super(FunctionCode.ReadCoils);
-
         this.address = address;
         this.quantity = quantity;
     }
 
-    public int getAddress() {
-        return address;
+    /**
+     * 设置地址值
+     * @param address
+     */
+    public void setAddress(final int address) {
+        this.address = address;
     }
 
+    /**
+     * 获取地址值
+     * @return address
+     */
+    public int getAddress() {
+        return this.address;
+    }
+
+    /**
+     * 设置quantity
+     * @param quantity
+     */
+    public void setQuantity(final int quantity) {
+        this.quantity = quantity;
+    }
+
+    /**
+     * 获取quantity
+     * @return quantity
+     */
     public int getQuantity() {
-        return quantity;
+        return this.quantity;
     }
 
 }

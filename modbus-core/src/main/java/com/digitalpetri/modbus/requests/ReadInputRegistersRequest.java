@@ -30,7 +30,6 @@ public class ReadInputRegistersRequest extends SimpleModbusRequest {
 
     /**
      * 无参构造, 需要手动set address/quantity
-     * @param functionCode
      */
     public ReadInputRegistersRequest() {
         super(FunctionCode.ReadInputRegisters);
@@ -57,7 +56,7 @@ public class ReadInputRegistersRequest extends SimpleModbusRequest {
 
     /**
      * 设置address
-     * @param address
+     * @param address 地址值
      */
     public void setAddress(final int address) {
         this.address = address;
@@ -73,7 +72,7 @@ public class ReadInputRegistersRequest extends SimpleModbusRequest {
 
     /**
      * 设置quantity
-     * @param quantity
+     * @param quantity 个数
      */
     public void setQuantity(final int quantity) {
         this.quantity = quantity;

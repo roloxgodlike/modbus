@@ -47,7 +47,7 @@ public class ReadCoilsRequest extends SimpleModbusRequest {
 
     /**
      * 设置地址值
-     * @param address
+     * @param address 地址值
      */
     public void setAddress(final int address) {
         this.address = address;
@@ -55,7 +55,7 @@ public class ReadCoilsRequest extends SimpleModbusRequest {
 
     /**
      * 获取地址值
-     * @return address
+     * @return address 地址值
      */
     public int getAddress() {
         return this.address;
@@ -63,7 +63,7 @@ public class ReadCoilsRequest extends SimpleModbusRequest {
 
     /**
      * 设置quantity
-     * @param quantity
+     * @param quantity 个数
      */
     public void setQuantity(final int quantity) {
         this.quantity = quantity;
@@ -71,7 +71,7 @@ public class ReadCoilsRequest extends SimpleModbusRequest {
 
     /**
      * 获取quantity
-     * @return quantity
+     * @return quantity 个数
      */
     public int getQuantity() {
         return this.quantity;

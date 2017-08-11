@@ -36,7 +36,6 @@ public class WriteSingleCoilRequest extends SimpleModbusRequest {
 
     /**
      * 无参构造, 需要手动set address/value
-     * @param functionCode
      */
     public WriteSingleCoilRequest() {
         super(FunctionCode.WriteSingleCoil);
@@ -63,7 +62,7 @@ public class WriteSingleCoilRequest extends SimpleModbusRequest {
 
     /**
      * 设置address
-     * @param address
+     * @param address 地址值
      */
     public void setAddress(final int address) {
         this.address = address;
@@ -79,7 +78,7 @@ public class WriteSingleCoilRequest extends SimpleModbusRequest {
 
     /**
      * 设置value
-     * @param value
+     * @param value 值
      */
     public void setValue(final boolean value) {
         this.value = value ? 0xFF00 : 0x0000;
